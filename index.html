@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terapis Bekam Sehat - Fitri H.D</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-2 {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-3 {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pricing-body {
+            padding: 2rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #e74c3c;
+            color: white;
+            padding: 0.5rem 2rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001; /* Ensure it's above other elements */
+        }
+        
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: none; /* Changed from flex to none */
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .chatbot-close {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .chatbot-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .chatbot-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .chatbot-send {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .message {
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            max-width: 85%;
+            line-height: 1.4;
+        }
+        
+        .bot {
+            background: #f1f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user {
+            background: #e74c3c;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quick-reply {
+            background: #fff;
+            color: #667eea;
+            border: 1px solid #667eea;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .quick-reply:hover {
+            background: #667eea;
+            color: #fff;
+        }
+        
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1.2s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot-window {
+                width: 95vw;
+                height: 75vh;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏥 Bekam Sehat</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#pricing">Harga</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="floating-element floating-1">💧</div>
+        <div class="floating-element floating-2">🌿</div>
+        <div class="floating-element floating-3">✨</div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>TERAPI <br> BEKAM <br> SEHAT</h1>
+                <p class="subtitle">Menyehatkan Tubuh dengan Metode Tradisional</p>
+                <p style="margin-bottom: 2rem;">Terapis profesional Fitri H.D dengan pengalaman bertahun-tahun dalam terapi bekam tradisional untuk kesehatan optimal Anda.</p>
+                <a href="#contact" class="cta-button">Konsultasi Sekarang</a>
+            </div>
+            <div class="hero-image">
+                <img src="img/BekamKering.jpg" alt="Terapi Bekam Fitri H.D" />
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Apa Itu Bekam?</h2>
+            <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Bekam adalah terapi tradisional yang menggunakan alat khusus untuk membersihkan kulit dan menarik darah kotor. Metode ini dipercaya dapat meningkatkan sirkulasi darah dan menghilangkan racun dari tubuh.
+            </p>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🩸 Bekam Basah</h3>
+                    <p>Metode terapi tradisional yang melibatkan pengeluaran darah dari tubuh setelah dilakukan penusukan atau sayatan kecil pada kulit.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🫧 Bekam Kering</h3>
+                    <p>Metode terapi tradisional yang melibatkan penggunaan cangkir untuk menciptakan efek vakum pada kulit, tanpa membuat sayatan atau mengeluarkan darah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Manfaat Bekam</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🧪</div>
+                    <div>
+                        <h4>Detoksifikasi</h4>
+                        <p>Mengeluarkan racun dari tubuh</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💪</div>
+                    <div>
+                        <h4>Meredakan Nyeri</h4>
+                        <p>Mengurangi nyeri otot dan sendi</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <div>
+                        <h4>Meningkatkan Imunitas</h4>
+                        <p>Meningkatkan sistem kekebalan tubuh</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">😌</div>
+                    <div>
+                        <h4>Relaksasi</h4>
+                        <p>Mengurangi stres dan memberikan efek relaksasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Daftar Harga</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="pricing-header">
+                        <h3>Bekam Basah</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">Rp 200.000</div>
+                        <p>Terapi bekam basah dengan pengeluaran darah kotor untuk detoksifikasi maksimal.</p>
+                        <small style="color: #666;">Diskon 50% untuk pemesanan pertama!</small>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="pricing-header">
+                        <h3>Bekam Kering</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">Rp 180.000</div>
+                        <p>Terapi bekam kering untuk melancarkan peredaran darah tanpa pengeluaran darah.</p>
+                        <small style="color: #666;">Diskon 50% untuk pemesanan pertama!</small>
+                    </div>
+                </div>
+                <div class="pricing-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="pricing-header">
+                        <h3>Bekam Kecantikan</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">Rp 190.000</div>
+                        <p>Paket khusus bekam untuk kecantikan dan kesehatan kulit wajah.</p>
+                        <small style="color: #666;">Diskon 50% untuk pemesanan pertama!</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #fff3cd; padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+                <h4 style="color: #856404; margin-bottom: 1rem;">Informasi Penting</h4>
+                <p style="color: #856404;">Hanya melayani home visit untuk wilayah se-Jabodetabek<br>
+                <strong>Harga belum termasuk transport!</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Informasi Layanan</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 style="color: #e74c3c; margin-bottom: 2rem;">Hubungi Kami</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jalan Aren II, gg sate RT/RW 02/03, Pd Betung, Pd Aren, Tangerang Selatan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Telepon/WhatsApp</h4>
+                            <p>085645225233</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>fitrihardiana64@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="color: #e74c3c; margin-bottom: 2rem;">Tentang Terapis</h3>
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white;">
+                            👩‍⚕️
+                        </div>
+                        <h4>Fitri H.D</h4>
+                        <p style="color: #666;">Terapis Bekam Bersertifikat</p>
+                    </div>
+                    <p>Terapis bekam profesional dengan pengalaman bertahun-tahun dalam memberikan layanan terapi bekam tradisional. Telah menangani ribuan pasien dengan berbagai keluhan kesehatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Terapis Bekam Sehat - Fitri H.D. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" id="chatbotToggle">💬</div>
+        <div class="chatbot-window" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div>💬 Chat dengan Kami</div>
+                <div class="chatbot-close" id="chatbotClose">✕</div>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ketik pesan...">
+                <button class="chatbot-send" id="chatbotSend">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about-card, .service-card, .benefit-item, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add click effects to buttons
+        document.querySelectorAll('.cta-button, .chatbot-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.height, rect.width);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .cta-button, .chatbot-button {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+
+         // Auto-type effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typewriter effect after page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 150);
+                }, 500);
+            }
+        });
+
+
+        // Add number counter animation for pricing
+        function animateNumber(element, start, end, duration) {
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                
+                element.textContent = `Rp ${current.toLocaleString('id-ID')}`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        // Animate pricing numbers when they come into view
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const priceElement = entry.target.querySelector('.price');
+                    const priceText = priceElement.textContent;
+                    const priceValue = parseInt(priceText.replace(/\D/g, ''));
+                    
+                    animateNumber(priceElement, 0, priceValue, 2000);
+                    priceObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.pricing-card').forEach(card => {
+            priceObserver.observe(card);
+        });
+
+
+        // =================================================================
+        // NEW CHATBOT FUNCTIONALITY
+        // =================================================================
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        let isTyping = false;
+
+        // Chatbot responses object - Data updated to match website content
+        const chatbotResponses = {
+            layanan: {
+                text: "Kami menyediakan 3 jenis layanan bekam:\n\n🩸 **Bekam Basah** - Terapi dengan pengeluaran darah kotor untuk detoksifikasi.\n\n🫧 **Bekam Kering** - Terapi tanpa pengeluaran darah untuk melancarkan peredaran darah.\n\n✨ **Bekam kecantikan** - Terapi khusus untuk perawatan wajah dan kesehatan kulit.\n\nMana yang Anda minati?",
+                replies: ["Bekam Basah", "Bekam Kering", "Bekam Kecantikan", "Tanya Harga"]
+            },
+            harga: {
+                text: "Berikut daftar harga layanan kami (belum termasuk transport):\n\n🩸 Bekam Basah: Rp 200.000\n🫧 Bekam Kering: Rp 180.000\n✨ Bekam cantikan: Rp 190.000 \n\nIngin membuat janji temu?",
+                replies: ["Booking Sekarang", "Layanan Kami", "Kontak"]
+            },
+            jadwal: {
+                text: "Kami melayani **home visit** untuk seluruh wilayah Jabodetabek. Jadwal praktik kami fleksibel dan dibuat berdasarkan janji temu. \n\nUntuk booking, silakan hubungi:\n📱 085645225233 (Telp/WA)\n\nApakah ada waktu khusus yang Anda inginkan?",
+                replies: ["Booking via WA", "Layanan", "Harga"]
+            },
+            bekam_kering: {
+                text: "**Bekam Kering** cocok untuk:\n\n✅ Mengatasi pegal-pegal dan kelelahan\n✅ Melancarkan peredaran darah\n✅ Mengurangi stres dan ketegangan\nPromo! Diskon 50% untuk pemesanan pertama.\n\nHarga: Rp 190.000 \n(belum termasuk transport)\n\nIngin tahu lebih lanjut?",
+                replies: ["Booking", "Harga Lain"]
+            },
+            bekam_basah: {
+                text: "**Bekam Basah** adalah terapi detoksifikasi untuk:\n\n✅ Mengeluarkan racun dari tubuh\n✅ Meningkatkan sistem imun\n✅ Mengatasi berbagai keluhan kesehatan\nPromo! Diskon 50% untuk pemesanan pertama.\n\nHarga: Rp 200.000 \n(belum termasuk transport)\n\nApakah Anda memiliki kondisi kesehatan khusus?",
+                replies: ["Konsultasi", "Booking",]
+            },
+            bekam_cantikan: {
+                text: "**Bekam Cantikan** untuk:\n\n✨ Mengencangkan kulit wajah\n✨ Mengurangi kerutan dan garis halus\n✨ Mencerahkan warna kulit\n\nPromo! Diskon 50% untuk pemesanan pertama.\n\nHarga: Rp 190.000 (belum termasuk transport)\n\nCocok untuk semua jenis kulit!",
+                replies: ["Booking Promo", "Layanan Lain"]
+            },
+            konsultasi: {
+                text: "Tentu! Anda bisa berkonsultasi langsung dengan terapis kami, Fitri H.D.\n\nKami akan:\n✅ Evaluasi kondisi kesehatan Anda\n✅ Rekomendasikan jenis bekam yang tepat\n✅ Jawab semua pertanyaan Anda\n\nHubungi kami untuk jadwal konsultasi:\n📱 085645225233 (Telp/WA)",
+                replies: ["WhatsApp", "Telepon", "Alamat"]
+            },
+            default: {
+                text: "Maaf, saya belum mengerti. Anda bisa pilih topik di bawah ini, atau ketik pertanyaan Anda.",
+                replies: ["Layanan Kami", "Harga", "Jadwal", "Kontak"]
+            }
+        };
+
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.add('active');
+            if (chatbotMessages.children.length === 0) {
+                 showWelcomeMessage();
+            }
+            chatbotInput.focus();
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+        });
+
+        // Send message function
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message && !isTyping) {
+                addMessage(message, 'user');
+                chatbotInput.value = '';
+                processMessage(message);
+            }
+        }
+
+        chatbotSend.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Add message to chat window
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            // Sanitize text before setting innerHTML
+            const safeText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            messageDiv.innerHTML = safeText.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typing';
+            typingDiv.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+            chatbotMessages.appendChild(typingDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            isTyping = true;
+        }
+
+        // Hide typing indicator
+        function hideTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) {
+                typing.remove();
+            }
+            isTyping = false;
+        }
+
+        // Add quick replies
+        function addQuickReplies(replies) {
+             setTimeout(() => {
+                const lastMessage = chatbotMessages.lastElementChild;
+                if (lastMessage && lastMessage.classList.contains('bot')) {
+                    const quickRepliesDiv = document.createElement('div');
+                    quickRepliesDiv.className = 'quick-replies';
+                    
+                    replies.forEach(reply => {
+                        const replyBtn = document.createElement('div');
+                        replyBtn.className = 'quick-reply';
+                        replyBtn.textContent = reply;
+                        replyBtn.addEventListener('click', () => {
+                            // Disable all quick replies after one is clicked
+                            quickRepliesDiv.querySelectorAll('.quick-reply').forEach(btn => {
+                                btn.style.pointerEvents = 'none';
+                                btn.style.opacity = '0.6';
+                            });
+                            addMessage(reply, 'user');
+                            processMessage(reply.toLowerCase());
+                        });
+                        quickRepliesDiv.appendChild(replyBtn);
+                    });
+                    
+                    chatbotMessages.appendChild(quickRepliesDiv);
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }
+            }, 300); // Small delay to ensure it appears after the message
+        }
+
+        // Process user message and get a response
+        function processMessage(message) {
+            showTyping();
+            
+            setTimeout(() => {
+                hideTyping();
+                const lowerMessage = message.toLowerCase();
+                let response = chatbotResponses.default;
+
+                // Keyword matching
+                if (lowerMessage.includes('layanan') || lowerMessage.includes('service')) {
+                    response = chatbotResponses.layanan;
+                } else if (lowerMessage.includes('harga') || lowerMessage.includes('biaya') || lowerMessage.includes('tarif')) {
+                    response = chatbotResponses.harga;
+                } else if (lowerMessage.includes('jadwal') || lowerMessage.includes('jam') || lowerMessage.includes('waktu')) {
+                    response = chatbotResponses.jadwal;
+                } else if (lowerMessage.includes('kering')) {
+                    response = chatbotResponses.bekam_kering;
+                } else if (lowerMessage.includes('basah')) {
+                    response = chatbotResponses.bekam_basah;
+                } else if (lowerMessage.includes('cantikan') || lowerMessage.includes('wajah') || lowerMessage.includes('kecantikan')) {
+                    response = chatbotResponses.bekam_cantikan;
+                } else if (lowerMessage.includes('konsultasi') || lowerMessage.includes('tanya')) {
+                    response = chatbotResponses.konsultasi;
+                } else if (lowerMessage.includes('booking') || lowerMessage.includes('janji')) {
+                    addMessage("Untuk booking silakan hubungi kami melalui WhatsApp atau Telepon.\n\n📱 085645225233", 'bot');
+                    addQuickReplies(["WhatsApp", "Telepon", "Layanan Lain"]);
+                    return;
+                } else if (lowerMessage.includes('whatsapp') || lowerMessage.includes('wa')) {
+                    window.open('https://wa.me/6285645225233?text=Halo,%20saya%20ingin%20booking%20terapi%20bekam', '_blank');
+                    addMessage("Membuka WhatsApp! Silakan lanjutkan percakapan di sana 😊", 'bot');
+                    return;
+                } else if (lowerMessage.includes('telepon') || lowerMessage.includes('call')) {
+                    addMessage("Silakan hubungi kami di:\n📱 085645225233", 'bot');
+                     addQuickReplies(["Layanan Lain", "Harga"]);
+                    return;
+                } else if (lowerMessage.includes('lokasi') || lowerMessage.includes('alamat')) {
+                    addMessage("Kami melayani **home visit** (datang ke rumah Anda) untuk seluruh area **Jabodetabek**. \n\nAlamat basis kami di: Jalan Aren II, gg sate RT/RW 02/03, Pd Betung, Pd Aren, Tangerang Selatan.", 'bot');
+                    addQuickReplies(["Booking Sekarang", "Tanya Harga"]);
+                    return;
+                } else if (lowerMessage.includes('terima kasih') || lowerMessage.includes('makasih')) {
+                     addMessage("Sama-sama! Senang bisa membantu. Jika ada pertanyaan lain, jangan ragu untuk bertanya ya.", 'bot');
+                     return;
+                } else if (lowerMessage.includes('halo') || lowerMessage.includes('hai')) {
+                     addMessage("Halo! Ada yang bisa saya bantu?", 'bot');
+                     addQuickReplies(chatbotResponses.default.replies);
+                     return;
+                }
+
+                addMessage(response.text, 'bot');
+                if (response.replies) {
+                    addQuickReplies(response.replies);
+                }
+            }, 1200);
+        }
+        
+        // Initial welcome message
+        function showWelcomeMessage() {
+            showTyping();
+            setTimeout(() => {
+                hideTyping();
+                addMessage("👋 Halo! Selamat datang di Terapis Bekam Sehat - Fitri H.D.", 'bot');
+                 setTimeout(() => {
+                    showTyping();
+                    setTimeout(() => {
+                         hideTyping();
+                         addMessage("Ada yang bisa saya bantu? Silakan pilih topik di bawah ini.", 'bot');
+                         addQuickReplies(chatbotResponses.default.replies);
+                    }, 1000);
+                }, 800);
+            }, 1000);
+        }
+
+        // Close chatbot when clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!chatbotContainer.contains(e.target) && !chatbotToggle.contains(e.target)) {
+                chatbotContainer.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
