@@ -398,6 +398,29 @@
             margin-right: 1rem;
         }
 
+        .terapis-image-container {
+            width: 150px; /* Lebar bingkai */
+            height: 150px; /* Tinggi bingkai */
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Jika ingin background gradien */
+            border-radius: 50%; /* Membuat bingkai bulat */
+            margin: 0 auto 1rem; /* Pusatkan dan berikan margin bawah */
+            overflow: hidden; /* Penting agar gambar tidak keluar dari bingkai bulat */
+            border: 5px solid #667eea; /* Contoh bingkai solid: tebal 5px, warna biru-ungu */
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Sedikit bayangan untuk efek 3D */
+            display: flex; /* Untuk memusatkan gambar di dalamnya */
+            align-items: center; /* Memusatkan gambar secara vertikal */
+            justify-content: center; /* Memusatkan gambar secara horizontal */
+        }
+
+/* Gambar terapis di dalam bingkai */
+        .terapis-image {
+            width: 100%; /* Membuat gambar mengisi seluruh lebar container */
+            height: 100%; /* Membuat gambar mengisi seluruh tinggi container */
+            object-fit: cover; /* Penting! Memastikan gambar menutupi seluruh area tanpa distorsi, bisa memotong bagian gambar */
+            /* object-fit: contain; /* Alternatif: Memastikan seluruh gambar terlihat, mungkin ada ruang kosong */
+            display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+        }
+
         /* Chatbot Styles */
         .chatbot-container {
             position: fixed;
@@ -834,7 +857,7 @@
                         <h4>Fitri H.D</h4>
                         <p style="color: #666;">Terapis Bekam Bersertifikat</p>
                     </div>
-                    <p>Terapis bekam profesional dengan pengalaman bertahun-tahun dalam memberikan layanan terapi bekam tradisional. Telah menangani ribuan pasien dengan berbagai keluhan kesehatan.</p>
+                    <p>Terapis bekam profesional dengan pengalaman bertahun-tahun dalam memberikan layanan terapi bekam tradisional. Telah menangani puluhan pasien dengan berbagai keluhan kesehatan.</p>
                 </div>
             </div>
         </div>
